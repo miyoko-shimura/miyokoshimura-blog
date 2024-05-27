@@ -1,9 +1,9 @@
 // List of categories for blog posts
 export const CATEGORIES = [
-	'Blockchain',
 	'Ethereum',
 	'Bitcoin',
+	'Blockchain',
+	'Technology',
 	'Productivity',
-	'Personal',
-	'Analytics'
+	'Personal'
 ] as const
