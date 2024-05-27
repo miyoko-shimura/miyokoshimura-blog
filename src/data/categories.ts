@@ -4,6 +4,6 @@ export const CATEGORIES = [
 	'Ethereum',
 	'Bitcoin',
 	'Productivity',
-	'Personal'
+	'Personal',
 	'Analytics'
 ] as const
