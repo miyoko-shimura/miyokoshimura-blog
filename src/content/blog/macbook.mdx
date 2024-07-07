@@ -1,39 +1,39 @@
 ---
-title: 'MacBook'
-description: 'The new MacBook Pro 2022 is here. With the Apple M2 chip, a new design, and more, the new MacBook Pro is the best laptop Apple has ever made.'
-pubDate: 'Jul 02 2022'
+title: 'RSA Encryption and Decryption with Python’s pycryptodome Library'
+description: 'Understanding RSA Basics for Data Security using Python'
+pubDate: 'Jan 20 2024'
 heroImage: '../../assets/images/book.jpg'
 category: 'Productivity'
 tags: ['PC']
 ---
 
-**If you know HTML, you already know enough to write your first Astro component.**
+This article explains how to encrypt and decrypt messages using RSA public key cryptography in Python, using the pycryptodome library for the implementation.
 
-Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX](#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
+RSA allows secure transmission of data using a key pair of public and private keys. I consider a grasp of RSA isn’t only crucial for data security but also provides insights into the principles of cryptography.
 
-## JSX-like Expressions
+## Overview of RSA Algorithm
 
-You can define local JavaScript variables inside of the frontmatter component script between the two code fences (`---`) of an Astro component. You can then inject these variables into the component's HTML template using JSX-like expressions!
+RSA is a public-key cryptography algorithm developed 1970’s by Ron Rivest, Adi Shamir, and Leonard Adleman at MIT. RSA was publicly described in 1977 and the algorithm patented. The patent expired in 2000 allowing free public use.
 
-:::note[dynamic vs reactive]
-Using this approach, you can include **dynamic** values that are calculated in the frontmatter. But once included, these values are not **reactive** and will never change. Astro components are templates that only run once, during the rendering step.
+RSA is an asymmetric cryptography algorithm which enables secure data transmission using a public and private key pair. RSA was initially slow compared to symmetric ciphers but improved over time.
 
-See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
-:::
+RSA Use Cases
 
 ### Variables
 
 Local variables can be added into the HTML using the curly braces syntax:
 
-```astro
+```python
 ---
-const name = 'Astro'
----
+# Step 1: Install pycryptodome package
+!pip install pycryptodome
 
-<div>
-	<h1>Hello {name}!</h1>
-	<!-- Outputs <h1>Hello Astro!</h1> -->
-</div>
+# Import necessary modules from pycryptodome
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
+
+# This module converts binary data to hexadecimal
+from binascii import hexlify
 ```
 
 ### Dynamic Attributes
