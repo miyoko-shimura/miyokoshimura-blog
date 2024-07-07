@@ -1,8 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap');
+
+
+
 
 @layer base {
+	body {
+  font-family: 'Lexend', sans-serif;
+}
 	/* body {
 		transition: background-color 0.5s ease;
 	} */
