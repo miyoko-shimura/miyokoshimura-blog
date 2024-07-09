@@ -1,4 +1,3 @@
----
 import HeaderLink from '@/components/HeaderLink'
 import TwitterIcon from '@/components/icons/TwitterIcon'
 import GithubIcon from '@/components/icons/GithubIcon'
@@ -25,7 +24,7 @@ const SOCIALNETWORKS = [
 
 <header class='relative flex items-center h-12 font-semibold'>
 	<a class='text-lg mr-4' href='/'>Home</a>
-	<a class='text-lg' href='https://www.linkedin.com/in/miyoko-shimura' target='_blank'>LinkedIn</a>
+	<a class='text-lg mr-8' href='https://www.linkedin.com/in/miyoko-shimura' target='_blank'>LinkedIn</a>
 
 	<div
 		id='astro-header-drawer'
@@ -37,8 +36,9 @@ const SOCIALNETWORKS = [
 			<div
 				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white'
 			>
-				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base'>
-					<TagIcon /> Tags
+				<HeaderLink href='/tags' class='flex items-center justify-between gap-1 text-2xl md:text-base'>
+					<span>Tags</span>
+					<TagIcon />
 				</HeaderLink>
 			</div>
 
@@ -65,18 +65,3 @@ const SOCIALNETWORKS = [
 		</button>
 	</div>
 </header>
-<script>
-	document.addEventListener('click', (event) => {
-		const menu = document.getElementById('astro-header-drawer')
-		const menuButton = document.getElementById('astro-header-drawer-button')
-		const isClickInside =
-			menu?.contains(event.target as HTMLDivElement) ||
-			menuButton?.contains(event.target as HTMLButtonElement)
-
-		if (isClickInside) {
-			menu?.classList.toggle('translate-x-96')
-		} else {
-			menu?.classList.add('translate-x-96')
-		}
-	})
-</script>
