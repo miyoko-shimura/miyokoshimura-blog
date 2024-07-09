@@ -6,10 +6,9 @@ heroImage: '../../assets/images/rsa.jpg'
 category: 'Python'
 tags: ['Python','Data','Cryptography']
 ---
-<p style="font-family: 'Sora', sans-serif;">
 This article explains how to encrypt and decrypt messages using RSA public key cryptography in Python, using the pycryptodome library for the implementation.
 
-RSA allows secure transmission of data using a key pair of public and private keys. I consider a grasp of RSA isn’t only crucial for data security but also provides insights into the principles of cryptography.
+RSA allows secure transmission of data using **a key pair of public and private keys**. I think a grasp of RSA isn’t only crucial for data security but also provides insights into the principles of cryptography.
 
 ## Overview of RSA Algorithm
 
@@ -17,11 +16,21 @@ RSA is a public-key cryptography algorithm developed 1970’s by Ron Rivest, Adi
 
 RSA is an asymmetric cryptography algorithm which enables secure data transmission using a public and private key pair. RSA was initially slow compared to symmetric ciphers but improved over time.
 
-RSA Use Cases
+### RSA Use Cases
 
-### Variables
+- **Secure Communication**: TLS/SSL encryption for internet security.
+- **Digital Signatures**: Verifies document authenticity through digital signatures.
+- **Secure Email**: Encrypts and verifies emails for confidentiality.
+- **File Transfer Security**: Ensures secure and verified file transfers.
+- **SSL/TLS Certificates**: Integral for securing websites and online transactions.
+- **VPN Security**: Establishes secure communication in virtual private networks.
+- **Authentication**: Used in smart cards for secure user authentication.
 
-Local variables can be added into the HTML using the curly braces syntax:
+# Setting Up Python Environment with “pycryptodome”
+First, we set up a Python environment with the necessary library for cryptographic operations and use the “pycryptodome” library built upon the now-deprecated “PyCrypto.”
+
+## Step 1: Installing libraries in Python
+The pycryptodome library serves as a comprehensive Python package of low-level cryptographic primitives. To install it, run the following commands.
 
 ```python
 ---
@@ -62,43 +71,27 @@ function handleClick() {
 }
 ---
 
-<!-- ❌ This doesn't work! ❌ -->
-<button onClick={handleClick}>Nothing will happen when you click me!</button>
+## Step 2: Generating RSA Key Pair
+After setting up your Python environment, generate an RSA key pair. In this example, we’ll use a 1024-bit key.
+
+```python
+---
+# Step2: Generate new RSA key
+# Create an RSA key pair with a key size of 1024 bits
+key = RSA.generate(1024)
+
+# Set the private_key variable to the generated key
+private_key = key
+
+# Derive the public key from the generated key
+public_key = key.publickey()
 ```
 
-Instead, use a client-side script to add the event handler, like you would in vanilla JavaScript:
+### Step 3: Encrypting Data with Public Key
+In this example, we’ll encrypt the message “Hello, this is a message to be encrypted.”
 
-```astro
----
-// do-this-instead.astro
----
 
-<button id='button'>Click Me</button>
-<script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
-</script>
-```
 
-:::
-
-### Dynamic HTML
-
-Local variables can be used in JSX-like functions to produce dynamically-generated HTML elements:
-
-```astro title="src/components/DynamicHtml.astro" "{item}"
----
-const items = ['Dog', 'Cat', 'Platypus']
----
-
-<ul>
-	{items.map((item) => <li>{item}</li>)}
-</ul>
-```
-
-Astro can conditionally display HTML using JSX logical operators and ternary expressions.
 
 ```astro title="src/components/ConditionalHtml.astro" "visible"
 ---
@@ -173,19 +166,5 @@ An Astro component template can render multiple elements with no need to wrap ev
 <p>Astro supports multiple root elements in a template.</p>
 ```
 
-#### Comments
 
-In Astro, you can use standard HTML comments or JavaScript-style comments.
-
-```astro title="example.astro"
----
-
----
-
-<!-- HTML comment syntax is valid in .astro files -->{/* JS comment syntax is also valid */}
-```
-
-:::caution
-HTML-style comments will be included in browser DOM, while JS ones will be skipped. To leave TODO messages or other development-only explanations, you may wish to use JavaScript-style comments instead.
-:::
 </p>
