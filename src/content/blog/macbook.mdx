@@ -44,38 +44,11 @@ from Crypto.Cipher import PKCS1_OAEP
 from binascii import hexlify
 ```
 
-### Dynamic Attributes
-
-Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
-
-```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
----
-const name = 'Astro'
----
-
-<h1 class={name}>Attribute expressions are supported</h1>
-
-<MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
-```
-
-:::caution
-HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
-For example, you can't assign an event handler to an HTML element in an Astro component:
-
-```astro
----
-// dont-do-this.astro
-function handleClick() {
-	console.log('button clicked!')
-}
----
-
 ### Step 2: Generating RSA Key Pair
 After setting up your Python environment, generate an RSA key pair. In this example, we’ll use a 1024-bit key.
 
 ```python
----
-# Step2: Generate new RSA key
+# Step 2: Generate new RSA key
 # Create an RSA key pair with a key size of 1024 bits
 key = RSA.generate(1024)
 
