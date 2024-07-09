@@ -1,4 +1,3 @@
----
 import BaseHead from '@/components/BaseHead'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -7,6 +6,7 @@ import ProviderAnimations from '@/components/ProviderAnimations'
 import TwSizeIndicator from '@/components/TwSizeIndicator'
 import EditBlog from '@/components/editBlog'
 const { title, description, image, articleDate } = Astro.props
+
 ---
 
 <html lang='en' class='scroll-smooth'>
@@ -14,10 +14,9 @@ const { title, description, image, articleDate } = Astro.props
     <BaseHead title={title} description={description} ogImage={image} articleDate={articleDate} />
     <ProviderTheme />
     <ProviderAnimations />
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fontsのリンクを追加 -->
     <style>
       body {
-        font-family: 'Sora', sans-serif; /* Soraフォントを適用 */
+        font-family: Helvetica, Arial, sans-serif; /* Helvetica preferred, fallback to Arial, then sans-serif */
         margin-left: calc(100vw - 100%); /* prevent layout shift */
       }
     </style>
