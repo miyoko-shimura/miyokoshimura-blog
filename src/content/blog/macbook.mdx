@@ -87,48 +87,63 @@ decrypted = cipher_rsa.decrypt(encrypted)
 print("Decrypted:", decrypted.decode("utf-8"))v
 
 ```
+### Step 5: Result
 
-
-- **Variable names must be capitalized.** For example, use `Element`, not `element`. Otherwise, Astro will try to render your variable name as a literal HTML tag.
-
-- **Hydration directives are not supported.** When using [`client:*` hydration directives](/en/core-concepts/framework-components/#hydrating-interactive-components), Astro needs to know which components to bundle for production, and the dynamic tag pattern prevents this from working.
-
-### Fragments
-
-Astro supports using either `<Fragment> </Fragment>` or the shorthand `<> </>`.
-
-Fragments can be useful to avoid wrapper elements when adding [`set:*` directives](/en/reference/directives-reference/#sethtml), as in the following example:
-
-```astro title="src/components/SetHtml.astro" "Fragment"
----
-const htmlString = '<p>Raw HTML content</p>'
----
-
-<Fragment set:html={htmlString} />
+```python
+Encrypted: b’3278c4093d20026311c0d3e70305b004ffec84b5d6636b2a4991e196f0065c946083d15f1c304f37b48c8b0ea7fe56fe3327150af555e8e903a13c7c797545d9ddd358c2d581f9070a98ad5bd8a4a6a725103346b53ba927f74e6730a62c38a4cb566f04c428a30a82d983f55358b4e201db9ce78741bf2de0d575e5ba248fc8'
+Decrypted: Hello, this is a message to be encrypted.
 ```
 
-### Differences between Astro and JSX
+## Full Python Code
+```python
+# Step1: Install pycryptodome package
+!pip install pycryptodome
 
-Astro component syntax is a superset of HTML. It was designed to feel familiar to anyone with HTML or JSX experience, but there are a couple of key differences between `.astro` files and JSX.
+# Import necessary modules from pycryptodome
+from Crypto.PublicKey import RSA
+from Crypto.Cipher import PKCS1_OAEP
 
-#### Attributes
+# This module converts binary data to hexadecimal
+from binascii import hexlify
 
-In Astro, you use the standard `kebab-case` format for all HTML attributes instead of the `camelCase` used in JSX. This even works for `class`, which is not supported by React.
 
-```jsx del={1} ins={2} title="example.astro"
-<div className="box" dataValue="3" />
-<div class="box" data-value="3" />
+# Step2: Generate new RSA key
+# Create an RSA key pair with a key size of 1024 bits
+key = RSA.generate(1024)
+
+# Set the private_key variable to the generated key
+private_key = key
+
+# Derive the public key from the generated key
+public_key = key.publickey()
+
+
+# Step3: Encrypt using public key
+# Create a PKCS1_OAEP cipher object with the public key for encryption
+data_to_encrypt = b"Hello, this is a message to be encrypted."
+cipher_rsa = PKCS1_OAEP.new(public_key)
+
+# Encrypt the provided data using the public key
+encrypted = cipher_rsa.encrypt(data_to_encrypt)
+
+# Convert binary data to hexadecimal for display using hexlify
+print("Encrypted:", hexlify(encrypted))
+
+
+# Step4: Decrypt using private key
+# Create a PKCS1_OAEP cipher object with the private key for decryption
+cipher_rsa = PKCS1_OAEP.new(private_key)
+decrypted = cipher_rsa.decrypt(encrypted)
+
+# Display the decrypted result as a UTF-8 encoded string
+print("Decrypted:", decrypted.decode("utf-8"))
 ```
+## Conclusion
 
-#### Multiple Elements
+Utilizing Python’s “pycryptodome” library provides practical insights into the inner workings of cryptographic algorithms. Yet, it’s vital to always handle private keys with care to ensure the security of your encrypted data. Hope you enjoyed the enigmatic voyage into the cryptography.
 
-An Astro component template can render multiple elements with no need to wrap everything in a single `<div>` or `<>`, unlike JavaScript or JSX.
-
-```astro title="src/components/RootElements.astro"
----
-// Template with multiple elements
----
-
-<p>No need to wrap elements in a single containing element.</p>
-<p>Astro supports multiple root elements in a template.</p>
-```
+### Additional Resources
+PyCryptodome Official Documentation
+RSA Encryption Algorithm (javaTpoint)
+Cryptocurrency’s Guardian: Kerckhoffs’ Principle and Private Keys
+Why Smart Contracts Needs the Real World Data — Oracle Solutions
