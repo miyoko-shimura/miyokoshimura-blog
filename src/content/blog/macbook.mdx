@@ -62,37 +62,32 @@ public_key = key.publickey()
 ### Step 3: Encrypting Data with Public Key
 In this example, we’ll encrypt the message “Hello, this is a message to be encrypted.”
 
+```python
+# Step3: Encrypt using public key
+# Create a PKCS1_OAEP cipher object with the public key for encryption
+data_to_encrypt = b"Hello, this is a message to be encrypted."
+cipher_rsa = PKCS1_OAEP.new(public_key)
 
+# Encrypt the provided data using the public key
+encrypted = cipher_rsa.encrypt(data_to_encrypt)
 
-
-```astro title="src/components/ConditionalHtml.astro" "visible"
----
-const visible = true
----
-
-{visible && <p>Show me!</p>}
-
-{visible ? <p>Show me!</p> : <p>Else show me!</p>}
+# Convert binary data to hexadecimal for display using hexlify
+print("Encrypted:", hexlify(encrypted))
 ```
 
-### Dynamic Tags
+### Step 4 : Decrypting Data with Private Key
 
-You can also use dynamic tags by setting a variable to an HTML tag name or a component import:
+```python
+# Step4: Decrypt using private key
+# Create a PKCS1_OAEP cipher object with the private key for decryption
+cipher_rsa = PKCS1_OAEP.new(private_key)
+decrypted = cipher_rsa.decrypt(encrypted)
 
-```astro title="src/components/DynamicTags.astro" /Element|(?<!My)Component/
----
-import MyComponent from './MyComponent.astro'
-const Element = 'div'
-const Component = MyComponent
----
+# Display the decrypted result as a UTF-8 encoded string
+print("Decrypted:", decrypted.decode("utf-8"))v
 
-<Element>Hello!</Element>
-<!-- renders as <div>Hello!</div> -->
-<Component />
-<!-- renders as <MyComponent /> -->
 ```
 
-When using dynamic tags:
 
 - **Variable names must be capitalized.** For example, use `Element`, not `element`. Otherwise, Astro will try to render your variable name as a literal HTML tag.
 
