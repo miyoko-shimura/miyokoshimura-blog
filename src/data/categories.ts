@@ -4,6 +4,6 @@ export const CATEGORIES = [
 	'Blockchain',
 	'Technology',
 	'Productivity',
-	'Bitcoin',
+	'Python',
 	'Personal'
 ] as const
