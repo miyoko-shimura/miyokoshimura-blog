@@ -10,7 +10,8 @@ module.exports = {
         white: '#f8f9fa'
       },
       fontFamily: {
-        body: ['Sora', ...defaultTheme.fontFamily.sans]
+        body: ['Sora', ...defaultTheme.fontFamily.sans],
+        sans: ['Sora', ...defaultTheme.fontFamily.sans]
       },
       gridTemplateColumns: {
         list: 'repeat(auto-fill, minmax(400px, max-content))'
