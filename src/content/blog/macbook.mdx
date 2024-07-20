@@ -1,12 +1,12 @@
 ---
-title: 'RSA Encryption and Decryption with Python’s pycryptodome Library'
+title: 'RSA Encryption and Decryption with Python’s PyCryptodome Library'
 description: 'Understanding RSA Basics for Data Security using Python'
 pubDate: 'Jan 20 2024'
 heroImage: '../../assets/images/2024July/rsa_cover.jpg'
 category: 'Python'
 tags: ['Python','Data','Cryptography','Security','Programming']
 ---
-This article explains how to encrypt and decrypt messages using RSA public key cryptography in Python, using the pycryptodome library for the implementation.
+I explain how to encrypt and decrypt messages using RSA public key cryptography in Python, using the PyCryptodome library for the implementation.
 
 RSA allows secure transmission of data using **a key pair of public and private keys**. I think a grasp of RSA isn’t only crucial for data security but also provides insights into the principles of cryptography.
 
@@ -29,17 +29,17 @@ RSA is an asymmetric cryptography algorithm which enables secure data transmissi
 - **VPN Security**: Establishes secure communication in virtual private networks.
 - **Authentication**: Used in smart cards for secure user authentication.
 
-## Setting Up Python Environment with “pycryptodome”
-First, we set up a Python environment with the necessary library for cryptographic operations and use the “pycryptodome” library built upon the now-deprecated “PyCrypto.”
+## Setting Up Python Environment with “PyCryptodome”
+First, we set up a Python environment with the necessary library for cryptographic operations and use the “PyCryptodome” library built upon the now-deprecated “PyCrypto.”
 
 ### Step 1: Installing libraries in Python
-The pycryptodome library serves as a comprehensive Python package of low-level cryptographic primitives. To install it, run the following commands.
+The PyCryptodome library serves as a comprehensive Python package of low-level cryptographic primitives. To install it, run the following commands.
 
 ```python
-# Step 1: Install pycryptodome package
+# Step 1: Install PyCryptodome package
 !pip install pycryptodome
 
-# Import necessary modules from pycryptodome
+# Import necessary modules from PyCryptodome
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 
@@ -99,10 +99,10 @@ Decrypted: Hello, this is a message to be encrypted.
 
 ### Full Python Code
 ```python
-# Step1: Install pycryptodome package
+# Step1: Install PyCryptodome package
 !pip install pycryptodome
 
-# Import necessary modules from pycryptodome
+# Import necessary modules from PyCryptodome
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 
@@ -143,7 +143,7 @@ print("Decrypted:", decrypted.decode("utf-8"))
 ```
 ## Conclusion
 
-Utilizing Python’s “pycryptodome” library provides practical insights into the inner workings of cryptographic algorithms. Yet, it’s vital to always handle private keys with care to ensure the security of your encrypted data. Hope you enjoyed an enigmatic journey into the cryptography!
+Utilizing Python’s “PyCryptodome” library provides practical insights into the inner workings of cryptographic algorithms. Yet, it’s vital to always handle private keys with care to ensure the security of your encrypted data. Hope you enjoyed an enigmatic journey into the cryptography!
 
 ## Additional Resources
 
