@@ -10,6 +10,7 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdanielcgilibert%2Fblog-template)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/danielcgilibert/blog-template)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/34fdffcb-0b80-4aa4-9a2b-acbf1d227d5b/deploy-status)](https://app.netlify.com/sites/miyoko-shimura/deploys)
 
 </div>
 
