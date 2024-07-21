@@ -2,7 +2,7 @@
 export const CATEGORIES = [
 	'Ethereum',
 	'Blockchain',
-	'Artificial Intelligence',
+	'AI',
 	'Technology',
 	'Productivity',
 	'Python',
